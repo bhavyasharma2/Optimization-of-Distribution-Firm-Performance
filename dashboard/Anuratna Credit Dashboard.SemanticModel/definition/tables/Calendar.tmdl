@@ -1,0 +1,74 @@
+table Calendar
+	lineageTag: 8ff922bb-cd8a-d41c-dfc4-8d3c5163b2ab
+
+	column Date
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		lineageTag: 87757270-6ec6-6208-a9ba-7d5bb9695f2d
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: f259c124-5c59-6c5e-6ff4-0f2c1d4345cb
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNo
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b3d2152d-0122-42ac-6799-f29fd1671e8e
+		summarizeBy: none
+		sourceColumn: MonthNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 087a54fc-392c-147e-7608-83d9304c45ad
+		summarizeBy: none
+		sourceColumn: Month
+		sortByColumn: MonthNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStart
+		dataType: dateTime
+		formatString: mmm yyyy
+		lineageTag: b3d2309a-5eaf-57ae-c0d3-74cd1a6747ca
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Quarter
+		dataType: string
+		lineageTag: a4f28fb2-a569-1cc2-15cb-77aef328e286
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "Calendar.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, List.Transform(Table.ColumnNames(Promoted), (c) => {c, each if _ = "" then null else _})),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"Date", type date}, {"Year", Int64.Type}, {"MonthNo", Int64.Type}, {"Month", type text}, {"MonthStart", type date}, {"Quarter", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

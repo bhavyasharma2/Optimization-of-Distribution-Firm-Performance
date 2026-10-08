@@ -1,0 +1,492 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "kpi.median_days_to_pay": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Median Days to Pay"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Median days to pay": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Median days": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.invoice_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Invoice Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Invoices": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.paid_within_60_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "% Paid Within 60 Days"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Paid in 60 days": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.unpaid_inr_lakh": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Unpaid (INR lakh)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Unpaid (lakh)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Unpaid (INR lakh)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.oldest_unpaid_bill_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Oldest Unpaid Bill (days)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Oldest unpaid (days)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.overdue_90_days_inr_lakh": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Overdue 90+ Days (INR lakh)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Overdue 90+ days (INR lakh)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.paid_within_30_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "% Paid Within 30 Days"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% of invoices paid within terms": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.billed_inr_lakh": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Billed (INR lakh)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Billed (INR lakh)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.units_sold": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Units Sold"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Units sold": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.models_sold": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Models Sold"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Models sold": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.avg_price_per_unit_inr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Avg Price per Unit (INR)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Average price per unit (INR)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "kpi.item_revenue_inr_lakh": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "KPI",
+			          "ConceptualProperty": "Item Revenue (INR lakh)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Billing (INR lakh)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "calendar.year": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "Year"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Invoice year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "calendar.monthstart": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Calendar",
+			          "ConceptualProperty": "MonthStart"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Month": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dealers.dealername": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dealers",
+			          "ConceptualProperty": "DealerName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Dealer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dealers.segment": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dealers",
+			          "ConceptualProperty": "Segment"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Dealer segment": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dealers.riskband": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dealers",
+			          "ConceptualProperty": "RiskBand"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Risk band": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dealers.riskscore": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dealers",
+			          "ConceptualProperty": "RiskScore"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Score": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "invoices.paymentoutcome": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Invoices",
+			          "ConceptualProperty": "PaymentOutcome"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Payment outcome": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "products.category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Products",
+			          "ConceptualProperty": "Category"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Category": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "products.modelcode": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Products",
+			          "ConceptualProperty": "ModelCode"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Model": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

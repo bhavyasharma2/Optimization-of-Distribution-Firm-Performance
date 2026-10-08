@@ -1,0 +1,71 @@
+table InvoiceItems
+	lineageTag: 2f76fb5a-5274-471c-643e-c5f546d63fa3
+
+	column LineId
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 384ed8a1-22bd-f88a-54d2-41a5ce08631b
+		summarizeBy: none
+		sourceColumn: LineId
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceNo
+		dataType: string
+		isHidden
+		lineageTag: d98afd4a-0404-110d-c42a-42af0cb09087
+		summarizeBy: none
+		sourceColumn: InvoiceNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelCode
+		dataType: string
+		isHidden
+		lineageTag: 8b968c86-46f7-d292-c015-19e8d7ff2a17
+		summarizeBy: none
+		sourceColumn: ModelCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d3dde57-3176-885c-129f-4ac95da854aa
+		summarizeBy: none
+		sourceColumn: Qty
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rate
+		dataType: int64
+		formatString: #,0
+		lineageTag: 55c4a1dc-ac59-18f7-3078-a555c977c759
+		summarizeBy: none
+		sourceColumn: Rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		formatString: #,0
+		lineageTag: a5e2910c-7174-9a91-9b8d-e593e4bb262b
+		summarizeBy: none
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	partition InvoiceItems = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "InvoiceItems.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, List.Transform(Table.ColumnNames(Promoted), (c) => {c, each if _ = "" then null else _})),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"LineId", Int64.Type}, {"InvoiceNo", type text}, {"ModelCode", type text}, {"Qty", Int64.Type}, {"Rate", Int64.Type}, {"Amount", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

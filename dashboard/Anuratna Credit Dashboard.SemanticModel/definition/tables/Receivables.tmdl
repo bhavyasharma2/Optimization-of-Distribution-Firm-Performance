@@ -1,0 +1,55 @@
+table Receivables
+	lineageTag: a3a9ffaa-c446-eb4c-be6b-73c82ca25726
+
+	column DealerCode
+		dataType: string
+		isHidden
+		lineageTag: c5eca96e-cc33-56f3-1c14-a7205456cea1
+		summarizeBy: none
+		sourceColumn: DealerCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthEnd
+		dataType: dateTime
+		isHidden
+		formatString: dd-mmm-yyyy
+		lineageTag: 21d61bba-4916-ccec-04cc-7380bf484819
+		summarizeBy: none
+		sourceColumn: MonthEnd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OpenReceivables
+		dataType: int64
+		formatString: #,0
+		lineageTag: 008ef80b-497a-ef3a-d58d-6a65fa4aafb6
+		summarizeBy: none
+		sourceColumn: OpenReceivables
+
+		annotation SummarizationSetBy = Automatic
+
+	column Billing90d
+		dataType: int64
+		formatString: #,0
+		lineageTag: 7a032b65-17e9-a003-3c80-9fd603d34fc7
+		summarizeBy: none
+		sourceColumn: Billing90d
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Receivables = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "Receivables.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, List.Transform(Table.ColumnNames(Promoted), (c) => {c, each if _ = "" then null else _})),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"DealerCode", type text}, {"MonthEnd", type date}, {"OpenReceivables", Int64.Type}, {"Billing90d", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

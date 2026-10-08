@@ -1,0 +1,105 @@
+table KPI
+	lineageTag: f2ba2dce-0328-4656-74c2-6a76d33915f0
+
+	measure 'Billed (INR lakh)' = DIVIDE(SUM(Invoices[Amount]), 100000)
+		formatString: 0.0
+		displayFolder: Receivables
+		lineageTag: dbcb2ea8-74e3-50f4-a6d4-e3d4887f4c1e
+
+	measure 'Invoice Count' = COUNTROWS(Invoices)
+		formatString: #,0
+		displayFolder: Receivables
+		lineageTag: a83f24c1-28c2-3979-a4c3-901fce1e9be8
+
+	measure 'Unpaid (INR lakh)' = DIVIDE(CALCULATE(SUM(Invoices[Amount]), Invoices[Status] = "Unpaid"), 100000)
+		formatString: 0.0
+		displayFolder: Receivables
+		lineageTag: 8ff72b82-43c1-c124-86f3-e9a34f184cdf
+
+	measure 'Unpaid Share' = DIVIDE([Unpaid (INR lakh)], [Billed (INR lakh)])
+		formatString: 0.0%
+		displayFolder: Receivables
+		lineageTag: 45ab7f4d-e82b-044f-f559-cada03234ff0
+
+	measure 'Overdue 90+ Days (INR lakh)' = DIVIDE(CALCULATE(SUM(Invoices[Amount]), Invoices[DaysOpen] > 90), 100000)
+		formatString: 0.0
+		displayFolder: Receivables
+		lineageTag: 8e88a15e-6e8e-3b57-b6be-ee3190352f4d
+
+	measure 'Oldest Unpaid Bill (days)' = MAX(Invoices[DaysOpen])
+		formatString: 0
+		displayFolder: Receivables
+		lineageTag: 4c36647d-c659-daa8-1ede-f27f1b380444
+
+	measure 'Median Days to Pay' = MEDIAN(Invoices[DaysToPay])
+		formatString: 0
+		displayFolder: Payment speed
+		lineageTag: e8e9527f-129d-d103-598b-f1dbddaa2f4c
+
+	measure 'Average Days to Pay' = AVERAGE(Invoices[DaysToPay])
+		formatString: 0.0
+		displayFolder: Payment speed
+		lineageTag: 44c519cd-32e5-f6a4-5c73-357dcb3b0ef4
+
+	measure '% Paid Within 30 Days' = ```
+			
+			   VAR n = COUNTROWS(Invoices)
+			   RETURN IF(n > 0, DIVIDE(CALCULATE(COUNTROWS(Invoices), Invoices[Status] = "Paid", Invoices[DaysToPay] <= 30), n) + 0)
+			```
+		formatString: 0.0%
+		displayFolder: Payment speed
+		lineageTag: ffe28205-2ee2-95a2-ff4b-75adbb69cab3
+
+	measure '% Paid Within 60 Days' = ```
+			
+			   VAR n = COUNTROWS(Invoices)
+			   RETURN IF(n > 0, DIVIDE(CALCULATE(COUNTROWS(Invoices), Invoices[Status] = "Paid", Invoices[DaysToPay] <= 60), n) + 0)
+			```
+		formatString: 0.0%
+		displayFolder: Payment speed
+		lineageTag: 442c6e2d-7244-e161-da9b-121cb5bb15a8
+
+	measure 'DSO (days)' = DIVIDE(SUM(Receivables[OpenReceivables]), SUM(Receivables[Billing90d])) * 90
+		formatString: 0
+		displayFolder: Payment speed
+		lineageTag: 1c65621c-d458-bf2e-a3e3-15ca5b847b9b
+
+	measure 'Credit Terms (days)' = IF(NOT ISBLANK([DSO (days)]), 30)
+		formatString: 0
+		displayFolder: Payment speed
+		lineageTag: fc835c94-b5d6-7227-b7b4-89a448e1cb76
+
+	measure 'Units Sold' = SUM(InvoiceItems[Qty])
+		formatString: #,0
+		displayFolder: Sales
+		lineageTag: e0253b7e-8f39-4919-cb6b-96c47f6b03e2
+
+	measure 'Item Revenue (INR lakh)' = DIVIDE(SUM(InvoiceItems[Amount]), 100000)
+		formatString: 0.0
+		displayFolder: Sales
+		lineageTag: 38a8cd0b-72cf-34aa-e943-f4b597d2ab01
+
+	measure 'Avg Price per Unit (INR)' = DIVIDE(SUM(InvoiceItems[Amount]), SUM(InvoiceItems[Qty]))
+		formatString: #,0
+		displayFolder: Sales
+		lineageTag: 2c227bad-8d05-183c-e9fe-0b947d851c2f
+
+	measure 'Models Sold' = DISTINCTCOUNT(InvoiceItems[ModelCode])
+		formatString: 0
+		displayFolder: Sales
+		lineageTag: 4bced00f-4b1e-f698-e264-b861c600c9bd
+
+	column Value
+		isHidden
+		formatString: 0
+		lineageTag: 25c01994-1232-fdab-17cf-1482c9315dbb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KPI = calculated
+		mode: import
+		source = {0}
+

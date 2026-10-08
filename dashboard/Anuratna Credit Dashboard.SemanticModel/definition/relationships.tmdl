@@ -1,0 +1,24 @@
+relationship 02264d3e-bfa1-2d7c-1533-64a814d95466
+	fromColumn: Invoices.DealerCode
+	toColumn: Dealers.DealerCode
+
+relationship 7a05d92e-7671-df34-d4ca-e0828c46ee51
+	fromColumn: Invoices.InvoiceDate
+	toColumn: Calendar.Date
+
+relationship 56d0062a-0d5d-8356-462b-b5109ca2df8c
+	fromColumn: InvoiceItems.InvoiceNo
+	toColumn: Invoices.InvoiceNo
+
+relationship a6522504-b70c-005d-3a6f-d417011038b8
+	fromColumn: InvoiceItems.ModelCode
+	toColumn: Products.ModelCode
+
+relationship a2a26914-a8af-539b-9ee6-581e4c1fa030
+	fromColumn: Receivables.DealerCode
+	toColumn: Dealers.DealerCode
+
+relationship 655ea4e9-a327-ae12-2d7a-9a513ead1bcb
+	fromColumn: Receivables.MonthEnd
+	toColumn: Calendar.Date
+

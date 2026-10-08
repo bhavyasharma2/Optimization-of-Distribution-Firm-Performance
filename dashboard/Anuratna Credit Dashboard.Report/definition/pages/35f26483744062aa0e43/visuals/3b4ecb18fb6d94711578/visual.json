@@ -1,0 +1,268 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "3b4ecb18fb6d94711578",
+  "position": {
+    "x": 24,
+    "y": 452,
+    "z": 12000,
+    "height": 256,
+    "width": 832,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dealers"
+                    }
+                  },
+                  "Property": "DealerName"
+                }
+              },
+              "queryRef": "Dealers.DealerName",
+              "nativeQueryRef": "Dealer",
+              "displayName": "Dealer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dealers"
+                    }
+                  },
+                  "Property": "Segment"
+                }
+              },
+              "queryRef": "Dealers.Segment",
+              "nativeQueryRef": "Segment",
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dealers"
+                    }
+                  },
+                  "Property": "RiskBand"
+                }
+              },
+              "queryRef": "Dealers.RiskBand",
+              "nativeQueryRef": "Risk band",
+              "displayName": "Risk band"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dealers"
+                    }
+                  },
+                  "Property": "RiskScore"
+                }
+              },
+              "queryRef": "Dealers.RiskScore",
+              "nativeQueryRef": "Score",
+              "displayName": "Score"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI"
+                    }
+                  },
+                  "Property": "Median Days to Pay"
+                }
+              },
+              "queryRef": "KPI.Median Days to Pay",
+              "nativeQueryRef": "Median days",
+              "displayName": "Median days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI"
+                    }
+                  },
+                  "Property": "% Paid Within 60 Days"
+                }
+              },
+              "queryRef": "KPI.% Paid Within 60 Days",
+              "nativeQueryRef": "Paid in 60 days",
+              "displayName": "Paid in 60 days"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI"
+                    }
+                  },
+                  "Property": "Unpaid (INR lakh)"
+                }
+              },
+              "queryRef": "KPI.Unpaid (INR lakh)",
+              "nativeQueryRef": "Unpaid (lakh)",
+              "displayName": "Unpaid (lakh)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPI"
+                    }
+                  },
+                  "Property": "Oldest Unpaid Bill (days)"
+                }
+              },
+              "queryRef": "KPI.Oldest Unpaid Bill (days)",
+              "nativeQueryRef": "Oldest unpaid (days)",
+              "displayName": "Oldest unpaid (days)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KPI"
+                  }
+                },
+                "Property": "Unpaid (INR lakh)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "179.88440945997831D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dealers.DealerName"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dealer scorecard'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 50,
+            "y": 615.39288663554885
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "8ff922bb-cd8a-d41c-dfc4-8d3c5163b2ab",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 511.34154800939262,
+            "y": -50
+          },
+          "nodeIndex": "Dealers",
+          "nodeLineageTag": "a1dbb3eb-7b08-cdf6-2f67-51f34c3a093a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 337.30002109878808,
+            "y": 504.11523955850862
+          },
+          "nodeIndex": "InvoiceItems",
+          "nodeLineageTag": "2f76fb5a-5274-471c-643e-c5f546d63fa3",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 913.39036846855493,
+            "y": 196.89220485577249
+          },
+          "nodeIndex": "Invoices",
+          "nodeLineageTag": "fce9a6a1-bd2a-2050-eb86-d33103f46fd3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 624.36678971411322,
+            "y": 475.92989580499483
+          },
+          "nodeIndex": "Products",
+          "nodeLineageTag": "068f80c7-519d-0528-fb08-e82137a72131",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 221.48326290405669,
+            "y": 276.56283915958477
+          },
+          "nodeIndex": "Receivables",
+          "nodeLineageTag": "a3a9ffaa-c446-eb4c-be6b-73c82ca25726",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1147.3903684685549,
+            "y": 294.69644331777442
+          },
+          "nodeIndex": "KPI",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

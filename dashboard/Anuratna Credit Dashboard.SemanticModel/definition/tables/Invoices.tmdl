@@ -1,0 +1,126 @@
+table Invoices
+	lineageTag: fce9a6a1-bd2a-2050-eb86-d33103f46fd3
+
+	column InvoiceNo
+		dataType: string
+		lineageTag: fee28d4d-2cd0-3dbf-97bc-254a0997f464
+		summarizeBy: none
+		sourceColumn: InvoiceNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		lineageTag: 97b2f03f-da90-3e7b-20fb-13918a6f6856
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DealerCode
+		dataType: string
+		isHidden
+		lineageTag: c6084954-fee4-32f7-8b4e-6619026b3d01
+		summarizeBy: none
+		sourceColumn: DealerCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Amount
+		dataType: int64
+		formatString: #,0
+		lineageTag: 444e2191-f42f-f854-3a9b-778006762f1d
+		summarizeBy: none
+		sourceColumn: Amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreditDays
+		dataType: int64
+		formatString: 0
+		lineageTag: b6e35fd3-31c4-b697-a506-0666da330b05
+		summarizeBy: none
+		sourceColumn: CreditDays
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReceiptDate
+		dataType: dateTime
+		formatString: dd-mmm-yyyy
+		lineageTag: 8c91ca1c-6a5e-dbff-5426-23d9acb75063
+		summarizeBy: none
+		sourceColumn: ReceiptDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DaysToPay
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e78faeb-c745-f19c-43ef-03c10fe9e551
+		summarizeBy: none
+		sourceColumn: DaysToPay
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: d678c756-7b5c-b85f-695a-18f982c06670
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentOutcome
+		dataType: string
+		lineageTag: 652ac1d1-7801-5b1a-e19c-d043220ba5b4
+		summarizeBy: none
+		sourceColumn: PaymentOutcome
+		sortByColumn: PaymentOutcomeOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column PaymentOutcomeOrder
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9867fde6-9a05-3ac4-81c6-b534ec9a1a77
+		summarizeBy: none
+		sourceColumn: PaymentOutcomeOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReviewPeriod
+		dataType: string
+		lineageTag: 610d7eec-3836-e613-be55-6a64c51f3a34
+		summarizeBy: none
+		sourceColumn: ReviewPeriod
+
+		annotation SummarizationSetBy = Automatic
+
+	column DaysOpen
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fa9f321-3aaf-3907-69e2-f9c706ad44a7
+		summarizeBy: none
+		sourceColumn: DaysOpen
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Invoices = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "Invoices.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Blanks = Table.TransformColumns(Promoted, List.Transform(Table.ColumnNames(Promoted), (c) => {c, each if _ = "" then null else _})),
+				    Typed = Table.TransformColumnTypes(Blanks, {{"InvoiceNo", type text}, {"InvoiceDate", type date}, {"DealerCode", type text}, {"Amount", Int64.Type}, {"CreditDays", Int64.Type}, {"ReceiptDate", type date}, {"DaysToPay", Int64.Type}, {"Status", type text}, {"PaymentOutcome", type text}, {"PaymentOutcomeOrder", Int64.Type}, {"ReviewPeriod", type text}, {"DaysOpen", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

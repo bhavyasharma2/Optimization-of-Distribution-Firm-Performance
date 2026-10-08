@@ -1,0 +1,61 @@
+{
+  "name": "Anuratna",
+  "dataColors": [
+    "#2A78D6",
+    "#E8833A",
+    "#3BA272",
+    "#C0504D",
+    "#7E57C2",
+    "#F2B134",
+    "#17A2B8",
+    "#8C8C8C"
+  ],
+  "good": "#3BA272",
+  "neutral": "#F2B134",
+  "bad": "#C0504D",
+  "foreground": "#1F2937",
+  "background": "#FFFFFF",
+  "tableAccent": "#2A78D6",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E5E7EB"
+              }
+            },
+            "radius": 8
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F3F4F6"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}
