@@ -2,7 +2,7 @@
 
 **Case study: Anuratna Corporation, Jaipur (authorised Sansui distributor)**
 
-🏆 **Awarded Best Project** in the Business Data Management capstone, IIT Madras BS in Data Science & Applications
+**Awarded Best Project** in the Business Data Management capstone, IIT Madras BS in Data Science & Applications
 
 This project analyses a real distribution business: why its dealers pay late, which dealers to trust with credit, what a credit policy is actually worth, and how to spend a limited stock budget. It is in two parts:
 
