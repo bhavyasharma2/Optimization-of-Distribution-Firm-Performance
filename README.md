@@ -13,6 +13,8 @@ This project analyses a real distribution business: why its dealers pay late, wh
 
 Both notebooks are self-contained, with explanations, outputs and conclusions, and run on the same data.
 
+| [Power BI dashboard](dashboard/) | A two-page interactive dashboard on the same data: receivables, payment behaviour and dealer risk, plus sales and stock by model |
+
 ---
 
 ## Contents
@@ -94,6 +96,8 @@ At ~92 days to get paid, financing stock and receivables eats about **60% of the
 **8. The firm is too small for an A/B test to prove an effect.**
 A power analysis on 24 dealers shows even a stepped rollout can't reliably detect a realistic +10-point improvement. The pilot is designed as a safety check with guardrail metrics instead.
 
+**9. - [Power BI dashboard](#power-bi-dashboard)**
+
 ## Recommendations
 
 From Part 2, using tools the firm already has (Tally, WhatsApp, the salesman's visit schedule, a spreadsheet):
@@ -112,6 +116,42 @@ From Part 2, using tools the firm already has (Tally, WhatsApp, the salesman's v
 | 10 | Stepped rollout | Start with a random half of dealers (stratified by segment), bring in the rest from month 4, and watch guardrail metrics |
 
 Part 2 also explains why dealers would accept the new terms rather than switch distributors. Anuratna is the city's only Sansui source, the rules only affect dealers who don't pay, and compliant dealers are rewarded.
+
+## Power BI dashboard
+
+The analysis is also turned into a two-page Power BI dashboard, saved as a Power BI Project (`.pbip`) so the model and report are plain text and version-controlled.
+
+### Receivables
+
+![Receivables page](dashboard/receivables.png)
+
+- **KPI cards:** total billed, unpaid, overdue beyond 90 days, median days to pay, and the share of invoices paid within the 30-day terms
+- **Billing by payment outcome:** within 30 / 31-60 / 61-90 / over 90 days / still unpaid
+- **Days sales outstanding by month**, against the 30-day credit terms
+- **Unpaid balance by dealer**
+- **Dealer scorecard** combining the Part 2 segment, risk band and scorecard points with each dealer's payment record
+- Slicers for invoice year and dealer segment
+
+### Sales & stock
+
+![Sales and stock page](dashboard/sales-stock.png)
+
+- **KPI cards:** units, billing, average price per unit and models sold
+- **Monthly units by category**, showing the Sep-Nov festive peaks
+- **Billing split** between TVs and washing machines
+- **Units by model**, and a model × year matrix
+- Slicers for year and category
+
+### How it is built
+
+| Layer | Details |
+|---|---|
+| Data model | Star schema: Invoices and InvoiceItems facts; Dealers, Products and Calendar dimensions; a dealer × month receivables table for DSO |
+| Measures (DAX) | 16 measures in a dedicated KPI table, including DSO (open receivables ÷ trailing 90-day billing × 90), median days to pay, % paid within 30/60 days, overdue 90+ and oldest unpaid bill |
+| Data loading | Power Query (M) loads the CSV tables through a single `DataFolder` parameter |
+| Format | PBIP with TMDL semantic model and PBIR report definition |
+
+The dashboard runs on the same representative dataset as the notebooks, which is not included in this repository.
 
 <!--
 ## Results
