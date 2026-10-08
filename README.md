@@ -95,7 +95,7 @@ At ~92 days to get paid, financing stock and receivables eats about **60% of the
 **8. The firm is too small for an A/B test to prove an effect.**
 A power analysis on 24 dealers shows even a stepped rollout can't reliably detect a realistic +10-point improvement. The pilot is designed as a safety check with guardrail metrics instead.
 
-**9. - [Power BI dashboard](#power-bi-dashboard)**
+**9. [Power BI dashboard](#power-bi-dashboard)**
 
 ## Recommendations
 
