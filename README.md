@@ -12,7 +12,7 @@ This project analyses a real distribution business: why its dealers pay late, wh
 | [Part 2: Revisiting the analysis with advanced methods (2026)](anuratna_part2_advanced_revisit.ipynb) | A return to the project with methods learned since: survival analysis, causal checks, leakage-free modelling, Monte Carlo policy simulation, forecast backtesting, stochastic optimisation and experiment design. It tests Part 1's conclusions and overturns several of them |
 | [Power BI dashboard](dashboard/) | A two-page interactive dashboard on the same data: receivables, payment behaviour and dealer risk, plus sales and stock by model |
 
-Both notebooks are self-contained, with explanations, outputs and conclusions, and run on the same data.
+Both notebooks are self-contained, with explanations, outputs and conclusions. The notebooks and the dashboard all run on the same data.
 
 ---
 
@@ -22,6 +22,7 @@ Both notebooks are self-contained, with explanations, outputs and conclusions, a
 - [Part 1: what the capstone found](#part-1-what-the-capstone-found)
 - [Part 2: what the revisit changed](#part-2-what-the-revisit-changed)
 - [Recommendations](#recommendations)
+- [Power BI dashboard](#power-bi-dashboard)
 - [Methods](#methods)
 - [Data](#data)
 - [Tech stack](#tech-stack)
@@ -95,7 +96,6 @@ At ~92 days to get paid, financing stock and receivables eats about **60% of the
 **8. The firm is too small for an A/B test to prove an effect.**
 A power analysis on 24 dealers shows even a stepped rollout can't reliably detect a realistic +10-point improvement. The pilot is designed as a safety check with guardrail metrics instead.
 
-**9. [Power BI dashboard](#power-bi-dashboard)**
 
 ## Recommendations
 
@@ -178,7 +178,7 @@ The analysis uses six tables shaped like Tally exports: dealer master, sales inv
 
 ## Tech stack
 
-Python · pandas · NumPy · SciPy (HiGHS LP solver) · statsmodels · scikit-learn · matplotlib · seaborn · Jupyter
+Python · pandas · NumPy · SciPy (HiGHS LP solver) · statsmodels · scikit-learn · matplotlib · seaborn · Jupyter · Power BI (DAX, Power Query, TMDL/PBIR)
 
 ## Author
 
