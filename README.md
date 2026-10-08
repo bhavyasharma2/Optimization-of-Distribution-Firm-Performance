@@ -10,10 +10,9 @@ This project analyses a real distribution business: why its dealers pay late, wh
 |---|---|
 | [Part 1: Descriptive and core analysis](anuratna_part1_descriptive_analysis.ipynb) | The capstone analysis: data cleaning, receivables ageing and DSO, payment behaviour by period, dealer segmentation, a first late-payment model, product demand and pricing, and the original recommendations |
 | [Part 2: Revisiting the analysis with advanced methods (2026)](anuratna_part2_advanced_revisit.ipynb) | A return to the project with methods learned since: survival analysis, causal checks, leakage-free modelling, Monte Carlo policy simulation, forecast backtesting, stochastic optimisation and experiment design. It tests Part 1's conclusions and overturns several of them |
+| [Power BI dashboard](dashboard/) | A two-page interactive dashboard on the same data: receivables, payment behaviour and dealer risk, plus sales and stock by model |
 
 Both notebooks are self-contained, with explanations, outputs and conclusions, and run on the same data.
-
-| [Power BI dashboard](dashboard/) | A two-page interactive dashboard on the same data: receivables, payment behaviour and dealer risk, plus sales and stock by model |
 
 ---
 
